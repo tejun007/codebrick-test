@@ -1,6 +1,6 @@
 # app
 
-> vue app for codebrick-test
+> vue project for the frontend of codebrick-test
 
 ## Build Setup
 
