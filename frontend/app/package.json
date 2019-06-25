@@ -10,10 +10,12 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "build": "NODE_ENV='production'  node build/build.js",
+    "build:watch": "NODE_ENV='prod-watch' node build/build.js"
   },
   "dependencies": {
     "vue": "^2.5.2",
+    "vue-currency-filter": "^3.4.2",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.16"
   },
@@ -68,7 +70,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpackbar": "^3.2.0"
   },
   "engines": {
     "node": ">= 6.0.0",

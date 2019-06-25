@@ -6,7 +6,19 @@ RUN npm install
 RUN npm run build
 
 # production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /user/share/nginx/html
+FROM ubuntu:xenial
+
+RUN apt-get update && apt-get install -y \
+    nginx \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY site.conf /etc/nginx/sites-available
+RUN ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled
+
 EXPOSE 80
-CMD nginx -g daemon off
+
+COPY --from=build-stage /app/dist /app/dist/
+
+CMD ["nginx", "-g", "daemon off;"]
+
+

@@ -1,11 +1,14 @@
 <template>
   <v-app id="app">
+
     <v-toolbar app>
       <v-toolbar-title>
         Codebrick test page
       </v-toolbar-title>
     </v-toolbar>
+
     <v-container fluid grid-list-md text-xs-center>
+
       <v-layout row wrap>
 
         <v-flex class="side-menu" d-flex md2>
@@ -31,8 +34,8 @@
         </v-flex>
 
       </v-layout>
+
     </v-container>
-    <v-footer app></v-footer>
   </v-app>
 </template>
 
