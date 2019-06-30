@@ -1,15 +1,37 @@
 version: '3'
 services:
 
+  backend1:
+    container_name: backend1
+    restart: always
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    tty: true
+    image: codebrick-test-backend
+
+  backend2:
+    container_name: backend2
+    restart: always
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    tty: true
+    image: codebrick-test-backend
+
   frontend:
     container_name: codebrick-test-frontend
     restart: always
     build:
       context: frontend
       dockerfile: Dockerfile
+    tty: true
     image: codebrick-test-frontend
     ports:
       - "8080:80"
     volumes:
       - ./frontend/app:/app
+    links:
+      - backend1
+      - backend2
 

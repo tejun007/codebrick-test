@@ -11,6 +11,11 @@ export default new Router({
       path: '/inventory',
       name: 'Inventory',
       component: () => import('@/components/Inventory')
+    },
+    {
+      path: '/commission',
+      name: 'Commission',
+      component: () => import('@/components/Commission')
     }
   ]
 })
