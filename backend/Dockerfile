@@ -8,13 +8,12 @@ ADD ./api /api
 
 EXPOSE 5000
 
-# ORM got go api
+# Rest API framework for golang
 RUN go get github.com/astaxie/beego
-# router for go api
-RUN go get github.com/gorilla/mux
+RUN go get -u github.com/beego/bee
 
 RUN go build -o main .
 
-CMD ["/api/main"]
+CMD ./main
 
 
